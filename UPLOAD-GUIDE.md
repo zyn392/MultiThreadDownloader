@@ -12,8 +12,8 @@ Cloudflare Pages 单个文件通常限制为 **25 MiB**，GitHub 普通仓库单
 
 当前文件大小约：
 
-- `MultiThreadDownloader-Setup.exe`：132 MB
-- `update.zip`：63.5 MB
+- `MultiThreadDownloader-Setup.exe`：133.2 MB
+- `update.zip`：64.4 MB
 
 因此两个文件都放在 **GitHub Releases**，不放进仓库。仓库只保留：
 
@@ -62,7 +62,7 @@ https://multithreaddownloader.pages.dev/manifest.json
 powershell -ExecutionPolicy Bypass -File .\build-public.ps1 `
   -Owner zyn392 `
   -Repo MultiThreadDownloader `
-  -Version 2.1.1 `
+  -Version 2.2.0 `
   -PagesUrl https://multithreaddownloader.pages.dev
 ```
 
@@ -93,7 +93,7 @@ git push
 https://github.com/zyn392/MultiThreadDownloader/releases
 ```
 
-创建 `v2.1.1`，上传：
+创建 `v2.2.0`，上传：
 
 - `release-assets/MultiThreadDownloader-Setup.exe`
 - `release-assets/update.zip`

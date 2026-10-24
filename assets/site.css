@@ -180,6 +180,15 @@ main {
   font-weight: 600;
 }
 
+.release-notes {
+  max-width: 560px;
+  margin: 12px 0 0;
+  color: var(--faint);
+  font-size: 10px;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
 .hero-card {
   overflow: hidden;
   border: 1px solid var(--border);

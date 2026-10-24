@@ -2,13 +2,13 @@
 
 # 多线程下载器 · Multi-Thread Downloader
 
-Windows 平台的多线程 HTTP/HTTPS 下载工具，使用 CPU 性能自动推荐线程数，支持分段下载、断点续传、批量队列和已下载文件列表。
+Windows 平台的多协议多线程下载工具，支持 HTTP、HTTPS、FTP、BT 种子和磁力链接，使用 CPU 性能自动推荐线程数，支持分段下载、断点续传、批量队列和已下载文件列表。
 
 > **这是二进制发布仓库，不包含源代码。**
 >
 > 本仓库只发布编译后的安装包、更新包和静态下载页，应用程序源代码保持私有。因此它属于“公开二进制分发仓库”，不是 OSI 定义的开源软件仓库。
 
-**最新版本：v2.1.1**
+**最新版本：v2.2.0**
 
 ## 下载
 
@@ -24,13 +24,16 @@ Windows 平台的多线程 HTTP/HTTPS 下载工具，使用 CPU 性能自动推�
 
 ## 功能
 
+- **全协议下载**：支持 HTTP、HTTPS、FTP / FTPS、`.torrent` 种子文件和 `magnet:` 磁力链接。
 - **CPU 智能线程数**：根据逻辑核心数与基础频率自动推荐线程数，默认上限 128，开发者模式可调整到 512。
 - **多线程分段下载**：使用 HTTP Range 并发下载，实时显示每个线程的进度、速度和状态。
+- **FTP 断点续传**：使用单连接下载，支持用户名密码、`.part` 续传和进度显示。
+- **BT / 磁力下载**：基于 MonoTorrent，支持 DHT / PEX、分片进度、Peer 与种子数量显示。
 - **批量下载**：一次粘贴多个链接，按顺序执行；支持队列停止、移出和失败重试。
 - **已下载文件列表**：自动记录完成的文件，可打开文件、打开目录、重新下载或移除记录。
 - **暂停 / 继续 / 断点续传**：使用 `.part` 和 `.part.json` 保留中断状态。
 - **单线程回退**：服务器不支持 Range 时自动切换为单连接下载。
-- **自动更新**：程序每次启动后会检查一次更新，发现新版本时自动下载、校验 SHA-256、替换主程序并重启。
+- **自动更新**：程序每次启动后会检查一次更新，发现新版本时自动下载、校验 SHA-256、替换主程序并重启；更新提示支持 `description` 简介。
 - **主题与语言**：浅色 / 深色 / 跟随系统，简体中文 / English。
 - **开机自启动**：以最小化方式启动，并保留全局快捷键。
 - **全局快捷键**：复制链接后按 `Ctrl+Alt+D` 即可开始下载。
@@ -81,14 +84,14 @@ manifest.json
 assets/
 ```
 
-> Cloudflare Pages 单个文件通常限制为 **25 MiB**。当前 `update.zip` 约 63.5 MB，安装包约 132 MB，因此大文件不放入 Pages，而是放在 GitHub Releases；Pages 只负责更新清单和下载页。
+> Cloudflare Pages 单个文件通常限制为 **25 MiB**。当前 `update.zip` 约 64.4 MB，安装包约 133.2 MB，因此大文件不放入 Pages，而是放在 GitHub Releases；Pages 只负责更新清单和下载页。
 
 `manifest.json` 应当保持短缓存或不缓存，仓库内的 `_headers` 已设置 `no-cache`。
 
 发布新版本时，需要同时更新：
 
 - GitHub Release 附件：`MultiThreadDownloader-Setup.exe`、`update.zip`
-- `manifest.json` 中的 `version`、`url`、`sha256`
+- `manifest.json` 中的 `version`、`url`、`sha256`、`notes`、`description`
 - 静态下载页中的版本相关文案（如有）
 
 ## 完整性校验
@@ -113,6 +116,7 @@ Get-FileHash .\MultiThreadDownloader-Setup.exe -Algorithm SHA256
 程序不包含遥测。它只会访问：
 
 - 你添加的下载链接；
+- BT / 磁力任务连接到的 Tracker、DHT 网络和其他 Peer（仅传输种子元数据与分片）；
 - Cloudflare Pages 上的更新清单地址；
 - 清单中指向的 GitHub Releases 更新包。
 
@@ -124,7 +128,7 @@ Get-FileHash .\MultiThreadDownloader-Setup.exe -Algorithm SHA256
 
 ## 免责声明
 
-本软件是一款本地 HTTP/HTTPS 文件下载工具，仅提供文件传输功能，不提供、不托管、不推荐任何下载内容。
+本软件是一款本地文件下载工具，支持 HTTP、HTTPS、FTP、BT 和磁力链接，仅提供文件传输功能，不提供、不托管、不推荐任何下载内容。
 
 用户应确保其下载、保存、使用的内容不侵犯他人知识产权，不违反法律法规及目标网站的服务条款。严禁将本软件用于下载违法、侵权、恶意软件或未经授权的内容。因用户使用行为产生的一切责任由用户自行承担。
 

@@ -1,5 +1,6 @@
 (function () {
   var versionNode = document.getElementById("latestVersion");
+  var notesNode = document.getElementById("latestNotes");
   if (!versionNode || !window.fetch) return;
 
   fetch("manifest.json", { cache: "no-store" })
@@ -10,6 +11,11 @@
     .then(function (manifest) {
       if (manifest && manifest.version) {
         versionNode.textContent = "v" + String(manifest.version).replace(/^v/i, "");
+      }
+      if (notesNode) {
+        var notes = (manifest && (manifest.description || manifest.notes)) || "";
+        notesNode.textContent = notes;
+        notesNode.hidden = !notes;
       }
     })
     .catch(function () {

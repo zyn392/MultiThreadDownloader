@@ -1,6 +1,7 @@
 {
-  "version": "2.1.1",
-  "url": "https://github.com/zyn392/MultiThreadDownloader/releases/download/v2.1.1/update.zip",
-  "sha256": "60a31dae6a719ba2e662cce602deb6e0bcba1982f4fe94a9c731c21eaf9ba3c3",
-  "notes": "新增启动自动检测更新；批量下载；已下载文件列表；开发者模式可调整最大线程数。"
+  "version": "2.2.0",
+  "url": "https://github.com/zyn392/MultiThreadDownloader/releases/download/v2.2.0/update.zip",
+  "sha256": "db022aaf56e075f00ffaa4e7d0496ecdd00c6a2153858acea162b774c46b55dc",
+  "notes": "新增 HTTP / FTP / BT / Magnet 全协议下载；更新说明简介。",
+  "description": "支持 HTTP、HTTPS、FTP、.torrent 种子和 magnet 磁力链接。FTP 支持断点续传，BT 使用分片下载并显示 Peer / 种子数量；更新清单新增 description 简介字段。"
 }

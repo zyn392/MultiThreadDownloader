@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>多线程下载器 · Multi-Thread Downloader</title>
-  <meta name="description" content="Windows 多线程 HTTP/HTTPS 下载工具。支持分段下载、断点续传、批量队列和已下载文件列表。">
+  <meta name="description" content="Windows 多线程下载工具，支持 HTTP、HTTPS、FTP、BT 种子和磁力链接。分段下载、断点续传、批量队列和已下载文件列表。">
   <link rel="icon" href="assets/logo.png">
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -27,7 +27,7 @@
       <div class="hero-copy">
         <span class="eyebrow">WINDOWS 10 / 11 · X64</span>
         <h1>把大文件下载得<br><em>更快、更稳。</em></h1>
-        <p class="lead">多线程分段下载、断点续传、批量队列和已下载文件列表。界面轻量，默认根据 CPU 性能选择线程数。</p>
+        <p class="lead">支持 HTTP、HTTPS、FTP、BT 种子和磁力链接。多线程分段下载、断点续传、批量队列和已下载文件列表，默认根据 CPU 性能选择线程数。</p>
         <div class="hero-actions">
           <a class="button primary" href="https://github.com/zyn392/MultiThreadDownloader/releases/latest/download/MultiThreadDownloader-Setup.exe">
             下载 Windows 安装包
@@ -36,7 +36,8 @@
             查看全部发布
           </a>
         </div>
-        <p class="meta">最新版本 <strong id="latestVersion">v2.1.1</strong> · 单文件安装 · 自包含，无需预装 .NET</p>
+        <p class="meta">最新版本 <strong id="latestVersion">v2.2.0</strong> · 全协议下载 · 自包含，无需预装 .NET</p>
+        <p class="release-notes" id="latestNotes"></p>
       </div>
 
       <div class="hero-card">
@@ -64,13 +65,13 @@
     <section class="features" id="features">
       <article>
         <span class="feature-index">01</span>
-        <h2>分段并发</h2>
-        <p>HTTP Range 分段下载，每个线程都有独立进度和速度。</p>
+        <h2>全协议支持</h2>
+        <p>HTTP、HTTPS、FTP、BT 种子和磁力链接，一个输入框全部搞定。</p>
       </article>
       <article>
         <span class="feature-index">02</span>
-        <h2>断点续传</h2>
-        <p>关闭或暂停后保留临时文件和分段信息，下次继续。</p>
+        <h2>分段与续传</h2>
+        <p>HTTP Range 分段并发，FTP / BT 断点续传，每个线程都有独立进度。</p>
       </article>
       <article>
         <span class="feature-index">03</span>
