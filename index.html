@@ -975,6 +975,86 @@ h1, h2, h3, p { margin: 0; }
   font-weight: 600;
 }
 
+/* ---------------------------------------------------------------- what's new */
+.whats-new {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.release-log {
+  border-top: 1px solid var(--line-strong);
+}
+
+.release-entry {
+  display: grid;
+  grid-template-columns: 154px minmax(0, 1fr);
+  gap: 30px;
+  padding: 28px 0 30px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.release-entry-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.version-tag {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.version-current {
+  padding: 2px 7px;
+  border-radius: 99px;
+  background: var(--beige);
+  color: #16130f;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+}
+
+.release-entry time {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--faint);
+}
+
+.release-entry h3 {
+  font-size: 22px;
+  font-weight: 730;
+  letter-spacing: -0.03em;
+}
+
+.release-entry p {
+  max-width: 760px;
+  margin-top: 8px;
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.release-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.release-points li {
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: var(--surface-2);
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--ink-2);
+}
+
 /* ---------------------------------------------------------------- update */
 .update-section {
   border-top: 1px solid var(--line);
@@ -1349,6 +1429,7 @@ h1, h2, h3, p { margin: 0; }
   .footer-grid { flex-direction: column; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
   .release-card { padding: 24px; }
+  .release-entry { grid-template-columns: 1fr; gap: 10px; }
 }
 
 @media (max-width: 430px) {
@@ -1388,6 +1469,7 @@ h1, h2, h3, p { margin: 0; }
     <nav class="site-nav" aria-label="主导航">
       <a href="#protocols">协议</a>
       <a href="#features">功能</a>
+      <a href="#whats-new">日志</a>
       <a href="#update">更新</a>
       <a href="#download">下载</a>
     </nav>
@@ -1639,11 +1721,63 @@ h1, h2, h3, p { margin: 0; }
     </div>
   </section>
 
+  <!-- ------------------------------------------------------------ what's new -->
+  <section class="section whats-new" id="whats-new">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="section-no">03 / WHAT'S NEW</p>
+          <h2>每次更新，<br>都在这里留下说明。</h2>
+        </div>
+        <p>官网会记录每个版本新增的功能。发布新版本时，同时更新此列表、CHANGELOG 和更新清单。</p>
+      </div>
+
+      <div class="release-log">
+        <article class="release-entry reveal">
+          <div class="release-entry-meta">
+            <span class="version-tag">v2.3.0</span>
+            <span class="version-current">最新</span>
+            <time>2026-10-24</time>
+          </div>
+          <div>
+            <h3>网盘工作台</h3>
+            <p>粘贴百度、阿里、移动、天翼、迅雷、夸克、UC、123 等网盘分享链接，在应用内登录并按网盘页面选择文件；捕获官方直链后自动携带 Cookie / Referer / User-Agent，交给多线程引擎下载。</p>
+            <ul class="release-points"><li>应用内登录</li><li>直链捕获</li><li>手动 Cookie</li><li>签名参数隐藏</li></ul>
+          </div>
+        </article>
+
+        <article class="release-entry reveal">
+          <div class="release-entry-meta">
+            <span class="version-tag">v2.2.1</span>
+            <time>2026-10-24</time>
+          </div>
+          <div>
+            <h3>自动更新也跑多线程</h3>
+            <p>更新包改用 HTTP Range 分段下载，最多 32 线程；更新进度显示当前并发数，服务器不支持 Range 时回退单线程，SHA-256 校验通过后替换并重启。</p>
+            <ul class="release-points"><li>32 线程</li><li>SHA-256</li><li>断点续传</li></ul>
+          </div>
+        </article>
+
+        <article class="release-entry reveal">
+          <div class="release-entry-meta">
+            <span class="version-tag">v2.2.0</span>
+            <time>2026-10-24</time>
+          </div>
+          <div>
+            <h3>全协议下载</h3>
+            <p>新增 HTTP / HTTPS、FTP / FTPS、.torrent 种子和 magnet 磁力链接；更新清单增加 description 简介字段，官网和更新提示可以展示完整说明。</p>
+            <ul class="release-points"><li>HTTP / FTP</li><li>BitTorrent</li><li>Magnet</li><li>更新简介</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ------------------------------------------------------------ update -->
   <section class="section update-section" id="update">
     <div class="wrap update-grid">
       <div class="update-copy reveal">
-        <p class="section-no">03 / AUTO UPDATE</p>
+        <p class="section-no">04 / AUTO UPDATE</p>
         <h2>更新，<br>也要跑满带宽。</h2>
         <p>每次启动自动检查一次。发现新版本后，更新包同样分段并发下载，进度里会显示当前线程数；校验 SHA-256 之后，安静地替换并重启。</p>
 
@@ -1681,7 +1815,7 @@ h1, h2, h3, p { margin: 0; }
       <div class="download-panel reveal">
         <div class="download-grid">
           <div>
-            <p class="section-no" style="color:var(--beige)">04 / DOWNLOAD</p>
+            <p class="section-no" style="color:var(--beige)">05 / DOWNLOAD</p>
             <h2>现在就把它<br><span>拉下来。</span></h2>
             <p class="lead">单文件安装程序，包含免责声明和安装路径选择。已安装时再次运行会进入卸载模式。</p>
             <div class="download-actions">

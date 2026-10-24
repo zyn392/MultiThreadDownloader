@@ -74,6 +74,17 @@ powershell -ExecutionPolicy Bypass -File .\build-public.ps1 `
 4. 把发布文件复制到 `release-assets/`；
 5. 把 `manifest.json` 复制到本仓库根目录。
 
+## 3.1 更新官网功能描述（每个版本必须）
+
+每次发布新版本，都必须在官网 `index.html` 的 `#whats-new` 更新日志中新增一条记录，说明本版本新增或改进的功能，然后才推送仓库。
+
+- 版本号与 Release tag 一致（例如 `v2.3.0`）
+- 标题写功能名，正文写清楚用户能感知的变化
+- 保留历史版本记录，不要用新版本覆盖旧记录
+- 同步更新 `CHANGELOG.md` 与 `manifest.json` 中的 `notes` / `description`
+
+这一条是发布流程的强制步骤，缺少官网功能描述的版本不要发布。
+
 ## 4. 上传仓库
 
 ```powershell

@@ -93,6 +93,8 @@ assets/
 
 - GitHub Release 附件：`MultiThreadDownloader-Setup.exe`、`update.zip`
 - `manifest.json` 中的 `version`、`url`、`sha256`、`notes`、`description`
+- **官网 `index.html` 的 `#whats-new` 更新日志：每个版本必须新增一条功能描述**
+- `CHANGELOG.md` 中对应版本的记录
 - 静态下载页中的版本相关文案（如有）
 
 ## 完整性校验
