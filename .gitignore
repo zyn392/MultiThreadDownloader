@@ -1,0 +1,20 @@
+# Binary release assets (upload to GitHub Releases, not git)
+release-assets/*
+!release-assets/README.md
+
+# Compiled binaries and archives
+*.exe
+*.zip
+*.pdb
+*.xml
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local secrets / notes
+.env
+*.local

@@ -1,0 +1,44 @@
+MultiThreadDownloader Binary License
+Copyright (c) 2026 The MultiThreadDownloader Project. All rights reserved.
+
+This repository distributes compiled binary releases only. No source code,
+project files, build scripts, or debug symbols are licensed or provided under
+this license.
+
+1. Permission
+
+You may download, install, and use the official release binaries for personal
+or internal business purposes.
+
+You may redistribute unmodified official release binaries, provided that:
+
+- this license is included;
+- the files are not presented as a modified or unofficial build;
+- no fee is charged for the software itself.
+
+2. Restrictions
+
+You may not:
+
+- represent modified builds as official releases;
+- remove copyright, license, or attribution notices from official binaries;
+- use the project name or logo in a way that suggests endorsement of a
+  modified or unrelated product.
+
+Nothing in this license restricts rights that cannot be restricted under
+applicable law.
+
+3. No source code
+
+No source code is provided. Possession of a compiled binary does not grant any
+license to the application source code.
+
+4. No warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
