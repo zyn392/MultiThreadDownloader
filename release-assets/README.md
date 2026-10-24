@@ -3,7 +3,6 @@
 这个目录用于暂存需要上传到 GitHub Releases 的文件：
 
 - `MultiThreadDownloader-Setup.exe`（Windows）
-- `MultiThreadDownloader-Linux-x64.tar.gz`（Linux x64）
 - `update.zip`（Windows 自动更新）
 - `SHA256SUMS.txt`
 

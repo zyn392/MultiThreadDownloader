@@ -2,13 +2,11 @@
 
 # 多线程下载器 · Multi-Thread Downloader
 
-Windows / Linux 平台的多线程 HTTP/HTTPS 下载工具，使用 CPU 性能自动推荐线程数，支持分段下载、断点续传、批量队列和已下载文件列表。
-
-> iOS 版暂未提供，后续需要原生 SwiftUI 重写并在 macOS/Xcode 上构建。
+Windows 平台的多线程 HTTP/HTTPS 下载工具，使用 CPU 性能自动推荐线程数，支持分段下载、断点续传、批量队列和已下载文件列表。
 
 > **这是二进制发布仓库，不包含源代码。**
 >
-> 本仓库只发布编译后的安装包与更新包，应用程序源代码保持私有。因此它属于“公开二进制分发仓库”，不是 OSI 定义的开源软件仓库。
+> 本仓库只发布编译后的安装包、更新包和静态下载页，应用程序源代码保持私有。因此它属于“公开二进制分发仓库”，不是 OSI 定义的开源软件仓库。
 
 **最新版本：v2.1.1**
 
@@ -17,11 +15,12 @@ Windows / Linux 平台的多线程 HTTP/HTTPS 下载工具，使用 CPU 性能�
 请前往本仓库的 **Releases** 页面下载最新版本：
 
 - `MultiThreadDownloader-Setup.exe`：Windows 单文件安装包
-- `MultiThreadDownloader-Linux-x64.tar.gz`：Linux x64 压缩包
-- `update.zip`：Windows 自动更新包（普通用户无需手动下载）
+- `update.zip`：自动更新包（供程序内部使用，普通用户无需手动下载）
 - `SHA256SUMS.txt`：所有发布文件的 SHA-256 校验值
 
 [前往 Releases 下载](../../releases/latest)
+
+本仓库根目录的 `index.html` 是面向 Cloudflare Pages 的静态下载页。
 
 ## 功能
 
@@ -31,31 +30,18 @@ Windows / Linux 平台的多线程 HTTP/HTTPS 下载工具，使用 CPU 性能�
 - **已下载文件列表**：自动记录完成的文件，可打开文件、打开目录、重新下载或移除记录。
 - **暂停 / 继续 / 断点续传**：使用 `.part` 和 `.part.json` 保留中断状态。
 - **单线程回退**：服务器不支持 Range 时自动切换为单连接下载。
-- **自动更新（Windows）**：程序每次启动后会检查一次更新，发现新版本时自动下载、校验 SHA-256、替换主程序并重启。
+- **自动更新**：程序每次启动后会检查一次更新，发现新版本时自动下载、校验 SHA-256、替换主程序并重启。
 - **主题与语言**：浅色 / 深色 / 跟随系统，简体中文 / English。
-- **开机自启动（Windows）**：以最小化方式启动，并保留全局快捷键。
-- **全局快捷键（Windows）**：复制链接后按 `Ctrl+Alt+D` 即可开始下载。
-- **Linux 版**：复用相同下载引擎和界面，通过本机浏览器打开；支持批量、历史、主题和语言。
+- **开机自启动**：以最小化方式启动，并保留全局快捷键。
+- **全局快捷键**：复制链接后按 `Ctrl+Alt+D` 即可开始下载。
 
 ## 系统要求
-
-### Windows
 
 - Windows 10 / 11，x64
 - Microsoft Edge WebView2 Runtime（Windows 11 通常已内置；Windows 10 如缺失请先从 Microsoft 官网安装）
 - 安装包为自包含版本，不需要预装 .NET
 
-### Linux
-
-- Linux x64（glibc）
-- 桌面环境和浏览器
-- 可选：`zenity` 或 `kdialog`（文件夹选择）
-- 可选：`wl-clipboard` / `xclip` / `xsel`（剪贴板）
-- 自包含版本，不需要预装 .NET
-
 ## 安装
-
-### Windows
 
 1. 从 Releases 下载 `MultiThreadDownloader-Setup.exe`。
 2. 运行安装程序，阅读并同意免责声明。
@@ -68,64 +54,49 @@ Windows / Linux 平台的多线程 HTTP/HTTPS 下载工具，使用 CPU 性能�
 %LOCALAPPDATA%\Programs\MultiThreadDownloader
 ```
 
-卸载：再次运行安装程序，检测到已安装后会进入卸载界面；也可以在 Windows「设置 → 应用 → 已安装的应用」中卸载。
+### 卸载
+
+再次运行安装程序，检测到已安装后会进入卸载界面；也可以在 Windows「设置 → 应用 → 已安装的应用」中卸载。
 
 卸载会删除程序文件、快捷方式、开机启动项、缓存和设置。**已经下载的文件不会被删除。**
 
-### Linux
+## 自动更新与 Cloudflare Pages
 
-```bash
-tar -xzf MultiThreadDownloader-Linux-x64.tar.gz
-cd MultiThreadDownloader-Linux-x64
-bash install.sh
+自动更新的工作方式：
+
+1. 程序启动后在后台请求 Cloudflare Pages 上的 `manifest.json`：
+
+```text
+https://multithreaddownloader.pages.dev/manifest.json
+```
+2. 清单中的 `url` 指向 GitHub Releases 中的 `update.zip`；
+3. 程序下载更新包并校验 SHA-256；
+4. 等待当前程序退出，替换主程序和界面文件，然后自动重启。
+
+Cloudflare Pages 与本 GitHub 仓库连接后，会直接发布仓库根目录的静态文件，包括：
+
+```text
+index.html
+manifest.json
+assets/
 ```
 
-安装后可从应用菜单启动“多线程下载器”，或运行：
+> Cloudflare Pages 单个文件通常限制为 **25 MiB**。当前 `update.zip` 约 63.5 MB，安装包约 132 MB，因此大文件不放入 Pages，而是放在 GitHub Releases；Pages 只负责更新清单和下载页。
 
-```bash
-~/.local/share/MultiThreadDownloader.App/MultiThreadDownloader.Linux
-```
+`manifest.json` 应当保持短缓存或不缓存，仓库内的 `_headers` 已设置 `no-cache`。
 
-Linux 版会启动一个仅监听 `127.0.0.1` 的本地服务，并在浏览器中打开与 Windows 版相同的界面。在“设置 → 退出程序”中可完全停止服务。
+发布新版本时，需要同时更新：
 
-Linux 版暂不支持全局快捷键、开机自启动和程序内自动更新；也不提供原生桌面窗口，界面运行在本机浏览器中。
-
-卸载：
-
-```bash
-~/.local/share/MultiThreadDownloader.App/uninstall.sh
-```
-
-## 自动更新（Windows）
-
-Windows 版启动后会在后台检查更新，不会阻塞正常使用。发现新版本后：
-
-1. 下载 `update.zip`；
-2. 校验服务器提供的 SHA-256；
-3. 解压并等待当前程序退出；
-4. 替换安装目录中的主程序和界面文件；
-5. 自动重新启动。
-
-自动更新要求更新包提供 SHA-256 校验值。校验不通过时会终止安装。
-
-如果你使用自行构建的版本，更新服务器地址由构建时的 `update-url.txt` 或本机设置决定。
-
-Linux 版请从 Releases 下载新版本并重新运行 `install.sh`。
+- GitHub Release 附件：`MultiThreadDownloader-Setup.exe`、`update.zip`
+- `manifest.json` 中的 `version`、`url`、`sha256`
+- 静态下载页中的版本相关文案（如有）
 
 ## 完整性校验
 
-发布页提供 `SHA256SUMS.txt`。
-
-Windows PowerShell：
+发布页提供 `SHA256SUMS.txt`。在 PowerShell 中校验：
 
 ```powershell
 Get-FileHash .\MultiThreadDownloader-Setup.exe -Algorithm SHA256
-```
-
-Linux：
-
-```bash
-sha256sum -c SHA256SUMS.txt
 ```
 
 请只从本仓库的 Releases 页面下载。第三方转载的安装包可能被篡改。
@@ -142,20 +113,13 @@ sha256sum -c SHA256SUMS.txt
 程序不包含遥测。它只会访问：
 
 - 你添加的下载链接；
-- 配置的更新清单地址（用于启动时检查更新）。
+- Cloudflare Pages 上的更新清单地址；
+- 清单中指向的 GitHub Releases 更新包。
 
-下载记录和设置仅保存在本机。
-
-Windows：
+下载记录和设置仅保存在本机：
 
 ```text
 %LOCALAPPDATA%\MultiThreadDownloader\
-```
-
-Linux：
-
-```text
-~/.local/share/MultiThreadDownloader/
 ```
 
 ## 免责声明
@@ -174,7 +138,7 @@ Linux：
 
 请通过本仓库的 Issues 反馈安装、使用或更新问题，并附上：
 
-- Windows 或 Linux 版本
+- Windows 版本
 - 程序版本
 - 错误提示或日志
 - 复现步骤

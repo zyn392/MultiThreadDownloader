@@ -1,6 +1,6 @@
 {
     "version":  "2.1.1",
     "url":  "https://github.com/zyn392/MultiThreadDownloader/releases/download/v2.1.1/update.zip",
-    "sha256":  "5a2e6af9a05fb05f197fe376f7720f24926f41cd9226823a10bfa8dbd47c20db",
+    "sha256":  "60a31dae6a719ba2e662cce602deb6e0bcba1982f4fe94a9c731c21eaf9ba3c3",
     "notes":  "新增启动自动检测更新；批量下载；已下载文件列表；开发者模式可调整最大线程数。"
 }
