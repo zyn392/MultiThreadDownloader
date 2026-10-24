@@ -2,8 +2,9 @@
 
 这个目录用于暂存需要上传到 GitHub Releases 的文件：
 
-- `MultiThreadDownloader-Setup.exe`
-- `update.zip`
+- `MultiThreadDownloader-Setup.exe`（Windows）
+- `MultiThreadDownloader-Linux-x64.tar.gz`（Linux x64）
+- `update.zip`（Windows 自动更新）
 - `SHA256SUMS.txt`
 
 这些大文件已被仓库的 `.gitignore` 排除，不会进入 Git 历史。请在 GitHub

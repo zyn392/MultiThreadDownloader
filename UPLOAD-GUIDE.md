@@ -26,10 +26,11 @@ powershell -ExecutionPolicy Bypass -File .\build-public.ps1 `
 
 脚本会：
 
-1. 生成带默认更新地址的安装包；
+1. 生成带默认更新地址的 Windows 安装包；
 2. 生成 `update.zip` 和 `manifest.json`；
-3. 把发布文件复制到本仓库的 `release-assets/`；
-4. 把 `manifest.json` 复制到本仓库根目录。
+3. 生成 Linux x64 的 `MultiThreadDownloader-Linux-x64.tar.gz`；
+4. 把发布文件复制到本仓库的 `release-assets/`；
+5. 把 `manifest.json` 复制到本仓库根目录。
 
 默认更新清单地址为：
 
@@ -65,7 +66,9 @@ git push
 ```powershell
 gh release create v2.1.1 `
   .\release-assets\MultiThreadDownloader-Setup.exe `
+  .\release-assets\MultiThreadDownloader-Linux-x64.tar.gz `
   .\release-assets\update.zip `
+  .\release-assets\SHA256SUMS.txt `
   --title "v2.1.1" `
   --notes-file .\CHANGELOG.md
 ```
@@ -76,6 +79,7 @@ gh release create v2.1.1 `
 - 标题：`v2.1.1`
 - 上传：
   - `release-assets/MultiThreadDownloader-Setup.exe`
+  - `release-assets/MultiThreadDownloader-Linux-x64.tar.gz`
   - `release-assets/update.zip`
   - `release-assets/SHA256SUMS.txt`
 - 发布 Release。
