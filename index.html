@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>多线程下载器 — HTTP · FTP · BT · 磁力，一次拉满</title>
-<meta name="description" content="Windows 多线程下载器：HTTP、HTTPS、FTP、BT 种子、磁力链接和主流网盘支持。CPU 自动推荐线程数，最多 128 线程；自动更新同样使用多线程分段下载。">
+<meta name="description" content="Windows 多线程下载器：HTTP、HTTPS、FTP、BT 种子、磁力链接、主流网盘和浏览器扩展。CPU 自动推荐线程数，最多 128 线程；自动更新同样使用多线程分段下载。">
 <link id="favicon" rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23e8cfa0'/%3E%3Cpath d='M14 31 27 9h8L22 31l13 22h-8L14 31Zm36 0L37 9h-7l13 22-13 22h7l13-22Z' fill='%2316130f'/%3E%3C/svg%3E">
 <script>
 (function () {
@@ -1501,7 +1501,7 @@ h1, h2, h3, p { margin: 0; }
         <h1>把等待，<br><span class="mark">切成 128 份。</span></h1>
         <p class="hero-lead">
           HTTP、FTP、BT 种子、磁力链接和主流网盘，同一个入口。CPU 自动推荐并发线程，
-          每一段的进度都看得见；连自动更新，也用 32 个线程下载。
+          每一段的进度都看得见；浏览器扩展把网页图片、视频和手动下载也送进来；连自动更新，也用 32 个线程下载。
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" id="heroDownload" href="https://github.com/zyn392/MultiThreadDownloader/releases/latest/download/MultiThreadDownloader-Setup.exe">
@@ -1518,7 +1518,7 @@ h1, h2, h3, p { margin: 0; }
           </a>
         </div>
         <ul class="hero-meta">
-          <li>最新版本 <b id="heroVersion">v2.3.0</b></li>
+          <li>最新版本 <b id="heroVersion">v2.4.0</b></li>
           <li>约 133 MB</li>
           <li>无需预装 .NET</li>
           <li>本地记录 · 无遥测</li>
@@ -1735,8 +1735,20 @@ h1, h2, h3, p { margin: 0; }
       <div class="release-log">
         <article class="release-entry reveal">
           <div class="release-entry-meta">
-            <span class="version-tag">v2.3.0</span>
+            <span class="version-tag">v2.4.0</span>
             <span class="version-current">最新</span>
+            <time>2026-10-24</time>
+          </div>
+          <div>
+            <h3>浏览器扩展</h3>
+            <p>新增 Edge / Chrome 扩展：扫描当前网页中的图片、视频、音频和媒体直链，勾选后发送到下载器多线程下载；浏览器手动下载也会被接管。程序启动时自动检测扩展，未安装会提示，并提供一键解压与安装入口。</p>
+            <ul class="release-points"><li>图片 / 视频抓取</li><li>手动下载接管</li><li>Native Messaging</li><li>Cookie / Referer</li></ul>
+          </div>
+        </article>
+
+        <article class="release-entry reveal">
+          <div class="release-entry-meta">
+            <span class="version-tag">v2.3.0</span>
             <time>2026-10-24</time>
           </div>
           <div>
@@ -1794,7 +1806,7 @@ h1, h2, h3, p { margin: 0; }
           <span>当前最新版本</span>
           <span class="release-badge"><i></i>LIVE MANIFEST</span>
         </div>
-        <div class="release-version" id="liveVersion">v2.3.0</div>
+        <div class="release-version" id="liveVersion">v2.4.0</div>
         <p class="release-notes" id="liveNotes">更新包改为多线程分段下载；支持 HTTP / FTP / BT / Magnet 全协议。</p>
         <p class="release-desc" id="liveDescription">自动更新包改用 HTTP Range 多线程分段下载（最多 32 线程），并继续支持 HTTP、HTTPS、FTP、.torrent 种子和 magnet 磁力链接。</p>
         <div class="release-actions">
@@ -1898,9 +1910,9 @@ h1, h2, h3, p { margin: 0; }
 
   /* ---------------------------------------------------------- live manifest */
   var fallback = {
-    version: "2.3.0",
-    notes: "新增网盘工作台：应用内登录网盘、捕获直链后多线程下载。",
-    description: "支持百度、阿里、移动、天翼、迅雷、夸克、UC、123 等网盘分享页；在应用内登录并选择文件，捕获官方下载直链后自动携带 Cookie / Referer / User-Agent 交给多线程引擎。"
+    version: "2.4.0",
+    notes: "新增浏览器扩展：抓取网页图片/视频，接管浏览器下载。",
+    description: "新增 Edge / Chrome 浏览器扩展，可扫描网页图片、视频和媒体直链，发送到下载器多线程下载；浏览器手动下载也会被接管。程序启动时自动检测扩展，未安装会提示。"
   };
 
   function setText(id, value) {

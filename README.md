@@ -8,7 +8,7 @@ Windows 平台的多协议多线程下载工具，支持 HTTP、HTTPS、FTP、BT
 >
 > 本仓库只发布编译后的安装包、更新包和静态下载页，应用程序源代码保持私有。因此它属于“公开二进制分发仓库”，不是 OSI 定义的开源软件仓库。
 
-**最新版本：v2.3.0**
+**最新版本：v2.4.0**
 
 ## 下载
 
@@ -16,6 +16,7 @@ Windows 平台的多协议多线程下载工具，支持 HTTP、HTTPS、FTP、BT
 
 - `MultiThreadDownloader-Setup.exe`：Windows 单文件安装包
 - `update.zip`：自动更新包（供程序内部使用，普通用户无需手动下载）
+- `MultiThreadDownloader-Extension.zip`：Edge / Chrome 浏览器扩展（可选，程序内也可一键解压安装）
 - `SHA256SUMS.txt`：所有发布文件的 SHA-256 校验值
 
 [前往 Releases 下载](../../releases/latest)
@@ -26,6 +27,7 @@ Windows 平台的多协议多线程下载工具，支持 HTTP、HTTPS、FTP、BT
 
 - **全协议下载**：支持 HTTP、HTTPS、FTP / FTPS、`.torrent` 种子文件和 `magnet:` 磁力链接。
 - **网盘工作台**：内置网盘浏览器，支持百度、阿里、移动、天翼、迅雷、夸克、UC、123 等分享页；登录并选择文件后捕获官方直链，自动携带 Cookie / Referer / User-Agent 进行多线程下载。
+- **浏览器扩展**：Edge / Chrome 扩展可扫描当前网页的图片、视频、音频和媒体直链，发送到下载器多线程下载；浏览器手动下载也会被接管。程序启动时自动检测，未安装会提示。
 - **CPU 智能线程数**：根据逻辑核心数与基础频率自动推荐线程数，默认上限 128，开发者模式可调整到 512。
 - **多线程分段下载**：使用 HTTP Range 并发下载，实时显示每个线程的进度、速度和状态。
 - **FTP 断点续传**：使用单连接下载，支持用户名密码、`.part` 续传和进度显示。
@@ -38,7 +40,7 @@ Windows 平台的多协议多线程下载工具，支持 HTTP、HTTPS、FTP、BT
 - **主题与语言**：浅色 / 深色 / 跟随系统，简体中文 / English。
 - **开机自启动**：以最小化方式启动，并保留全局快捷键。
 - **全局快捷键**：复制链接后按 `Ctrl+Alt+D` 即可开始下载。
-- **开发者模式**：启用要密码，密码：**zyn123456**,可自定线程数（千万别动更新服务器，否则接受不到新版本）
+- **开发者模式**：在设置中解锁后可调整最大线程数（1–512）；更新服务器请保持默认，否则可能收不到新版本。
 
 ## 系统要求
 
@@ -64,6 +66,32 @@ Windows 平台的多协议多线程下载工具，支持 HTTP、HTTPS、FTP、BT
 再次运行安装程序，检测到已安装后会进入卸载界面；也可以在 Windows「设置 → 应用 → 已安装的应用」中卸载。
 
 卸载会删除程序文件、快捷方式、开机启动项、缓存和设置。**已经下载的文件不会被删除。**
+
+## 浏览器扩展
+
+程序启动时会检测 Edge / Chrome 中的扩展。未安装时首页会出现提示，可以：
+
+1. 点击「Edge 安装」或「Chrome 安装」，程序会把扩展解压到：
+
+```text
+%LOCALAPPDATA%\MultiThreadDownloader\BrowserExtension
+```
+
+2. 在打开的扩展页启用「开发者模式」。
+3. 点击「加载解压缩的扩展」，选择上面的文件夹。
+4. 回到下载器点击「重新检测」。
+
+扩展功能：
+
+- 扫描网页中的图片、视频、音频和媒体直链
+- 勾选后发送到下载器，使用多线程引擎下载
+- 接管浏览器普通下载：取消浏览器下载并转交下载器
+- 自动携带当前站点的 Cookie、Referer、User-Agent
+- 图片 / 视频 / 链接右键菜单快捷下载
+
+扩展通过 Chrome Native Messaging 通信，下载器启动时会自动注册本机 Native Host。扩展 ID 固定，只有该扩展可以连接。扩展会随安装包提供，也可从 Releases 下载 `MultiThreadDownloader-Extension.zip`；扩展源码不在公开仓库。
+
+> 扩展只能捕获页面中直接可访问的媒体地址；HLS / DASH 播放列表不会自动合并分片，DRM 内容无法下载。请仅下载你有权访问和保存的内容。
 
 ## 自动更新与 Cloudflare Pages
 
@@ -92,7 +120,7 @@ assets/
 
 发布新版本时，需要同时更新：
 
-- GitHub Release 附件：`MultiThreadDownloader-Setup.exe`、`update.zip`
+- GitHub Release 附件：`MultiThreadDownloader-Setup.exe`、`update.zip`、`MultiThreadDownloader-Extension.zip`
 - `manifest.json` 中的 `version`、`url`、`sha256`、`notes`、`description`
 - **官网 `index.html` 的 `#whats-new` 更新日志：每个版本必须新增一条功能描述**
 - `CHANGELOG.md` 中对应版本的记录

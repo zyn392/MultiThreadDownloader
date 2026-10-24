@@ -62,23 +62,24 @@ https://multithreaddownloader.pages.dev/manifest.json
 powershell -ExecutionPolicy Bypass -File .\build-public.ps1 `
   -Owner zyn392 `
   -Repo MultiThreadDownloader `
-  -Version 2.3.0 `
+  -Version 2.4.0 `
   -PagesUrl https://multithreaddownloader.pages.dev
 ```
 
 脚本会：
 
-1. 生成带 Cloudflare Pages 默认更新地址的 Windows 安装包；
-2. 生成 `update.zip`；
-3. 生成 `manifest.json`，其中 `url` 指向 GitHub Release；
-4. 把发布文件复制到 `release-assets/`；
-5. 把 `manifest.json` 复制到本仓库根目录。
+1. 打包浏览器扩展 `extension.zip`；
+2. 生成带 Cloudflare Pages 默认更新地址的 Windows 安装包；
+3. 生成 `update.zip`；
+4. 生成 `manifest.json`，其中 `url` 指向 GitHub Release；
+5. 把发布文件复制到 `release-assets/`；
+6. 把 `manifest.json` 复制到本仓库根目录。
 
 ## 3.1 更新官网功能描述（每个版本必须）
 
 每次发布新版本，都必须在官网 `index.html` 的 `#whats-new` 更新日志中新增一条记录，说明本版本新增或改进的功能，然后才推送仓库。
 
-- 版本号与 Release tag 一致（例如 `v2.3.0`）
+- 版本号与 Release tag 一致（例如 `v2.4.0`）
 - 标题写功能名，正文写清楚用户能感知的变化
 - 保留历史版本记录，不要用新版本覆盖旧记录
 - 同步更新 `CHANGELOG.md` 与 `manifest.json` 中的 `notes` / `description`
@@ -104,10 +105,11 @@ git push
 https://github.com/zyn392/MultiThreadDownloader/releases
 ```
 
-创建 `v2.3.0`，上传：
+创建 `v2.4.0`，上传：
 
 - `release-assets/MultiThreadDownloader-Setup.exe`
 - `release-assets/update.zip`
+- `release-assets/MultiThreadDownloader-Extension.zip`
 - `release-assets/SHA256SUMS.txt`
 
 不要把 `.exe` 或 `.zip` 提交进 Git 仓库。

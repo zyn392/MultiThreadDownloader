@@ -1,7 +1,7 @@
 {
-  "version": "2.3.0",
-  "url": "https://github.com/zyn392/MultiThreadDownloader/releases/download/v2.3.0/update.zip",
-  "sha256": "f7a5c4f997c8d19efd1fbf62e9c4d61022d322cd3ba5431450d19ed06c27271f",
-  "notes": "新增网盘工作台：应用内登录网盘、捕获直链后多线程下载。",
-  "description": "新增网盘工作台：支持百度、阿里、移动、天翼、迅雷、夸克、UC、123 等网盘分享页，在应用内登录并选择文件，捕获官方下载直链后自动携带 Cookie / Referer / User-Agent 交给多线程引擎。自动更新仍使用多线程分段下载。"
+  "version": "2.4.0",
+  "url": "https://github.com/zyn392/MultiThreadDownloader/releases/download/v2.4.0/update.zip",
+  "sha256": "04410754c5a26d28236127b242736fd2c16dbee981f7e41cbdc7edbd9bcd4442",
+  "notes": "新增浏览器扩展：抓取网页图片/视频，接管浏览器下载。",
+  "description": "新增 Edge / Chrome 浏览器扩展：扫描网页图片、视频和媒体直链，发送到下载器多线程下载；浏览器手动下载也会被接管。程序启动时自动检测扩展，未安装会提示。"
 }

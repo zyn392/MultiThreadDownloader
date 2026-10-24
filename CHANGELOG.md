@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.4.0 — 2026-10-24
+
+- 新增 Edge / Chrome 浏览器扩展：扫描网页图片、视频、音频和媒体直链，发送到下载器多线程下载。
+- 浏览器手动下载可被接管，自动携带 Cookie、Referer、User-Agent。
+- 程序启动自动检测扩展，未安装时首页提示，并提供一键解压与安装入口。
+- 扩展通过 Native Messaging 连接本机下载器，固定扩展 ID 与 allowed_origins。
+- 发布包新增 `MultiThreadDownloader-Extension.zip`。
+
 ## v2.3.0 — 2026-10-24
 
 - 新增应用内「网盘工作台」：粘贴分享链接后，在应用内登录百度、阿里、移动、天翼、迅雷、夸克、UC、123 等网盘。
