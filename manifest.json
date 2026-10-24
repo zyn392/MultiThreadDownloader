@@ -1,7 +1,7 @@
 {
-    "version":  "2.2.1",
-    "url":  "https://github.com/zyn392/MultiThreadDownloader/releases/download/v2.2.1/update.zip",
-    "sha256":  "fffbcfdc3f02bad6050fef8269d5c961a597d7647b33a0dcacf7aa8e8c194f48",
-    "notes":  "更新包改为多线程分段下载；支持 HTTP / FTP / BT / Magnet 全协议。",
-    "description":  "自动更新包改用 HTTP Range 多线程分段下载（最多 32 线程），并继续支持 HTTP、HTTPS、FTP、.torrent 种子和 magnet 磁力链接；更新清单包含 description 简介字段。"
+    "version":  "2.3.0",
+    "url":  "https://github.com/zyn392/MultiThreadDownloader/releases/download/v2.3.0/update.zip",
+    "sha256":  "f7a5c4f997c8d19efd1fbf62e9c4d61022d322cd3ba5431450d19ed06c27271f",
+    "notes":  "新增网盘工作台：应用内登录网盘、捕获直链后多线程下载。",
+    "description":  "新增网盘工作台：支持百度、阿里、移动、天翼、迅雷、夸克、UC、123 等网盘分享页，在应用内登录并选择文件，捕获官方下载直链后自动携带 Cookie / Referer / User-Agent 交给多线程引擎。自动更新仍使用多线程分段下载。"
 }

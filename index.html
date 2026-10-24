@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>多线程下载器 — HTTP · FTP · BT · 磁力，一次拉满</title>
-<meta name="description" content="Windows 多线程下载器：HTTP、HTTPS、FTP、BT 种子和磁力链接全协议支持。CPU 自动推荐线程数，最多 128 线程；自动更新同样使用多线程分段下载。">
+<meta name="description" content="Windows 多线程下载器：HTTP、HTTPS、FTP、BT 种子、磁力链接和主流网盘支持。CPU 自动推荐线程数，最多 128 线程；自动更新同样使用多线程分段下载。">
 <link id="favicon" rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23e8cfa0'/%3E%3Cpath d='M14 31 27 9h8L22 31l13 22h-8L14 31Zm36 0L37 9h-7l13 22-13 22h7l13-22Z' fill='%2316130f'/%3E%3C/svg%3E">
 <script>
 (function () {
@@ -1418,7 +1418,7 @@ h1, h2, h3, p { margin: 0; }
         <p class="eyebrow"><i class="dot"></i>WINDOWS 10 / 11 · X64 · 自包含</p>
         <h1>把等待，<br><span class="mark">切成 128 份。</span></h1>
         <p class="hero-lead">
-          HTTP、FTP、BT 种子、磁力链接，同一个输入框。CPU 自动推荐并发线程，
+          HTTP、FTP、BT 种子、磁力链接和主流网盘，同一个入口。CPU 自动推荐并发线程，
           每一段的进度都看得见；连自动更新，也用 32 个线程下载。
         </p>
         <div class="hero-actions">
@@ -1436,7 +1436,7 @@ h1, h2, h3, p { margin: 0; }
           </a>
         </div>
         <ul class="hero-meta">
-          <li>最新版本 <b id="heroVersion">v2.2.1</b></li>
+          <li>最新版本 <b id="heroVersion">v2.3.0</b></li>
           <li>约 133 MB</li>
           <li>无需预装 .NET</li>
           <li>本地记录 · 无遥测</li>
@@ -1515,7 +1515,7 @@ h1, h2, h3, p { margin: 0; }
           <p class="section-no">01 / PROTOCOLS</p>
           <h2>协议不是限制，<br>输入框才是。</h2>
         </div>
-        <p>不用为每种链接换一个工具。粘贴、选择目录、开始——剩下交给分段引擎。</p>
+        <p>不用为每种链接换一个工具。粘贴链接或网盘分享页、选择文件、开始——剩下交给分段引擎。</p>
       </div>
 
       <div class="protocol-grid">
@@ -1557,6 +1557,16 @@ h1, h2, h3, p { margin: 0; }
           <h3>Magnet</h3>
           <p>不需要先下载种子文件。磁力链接直接解析元数据，边找 Peer 边下载，断点信息保存在本地缓存。</p>
           <ul class="tags"><li>元数据</li><li>Peer</li><li>种子</li></ul>
+        </article>
+
+        <article class="protocol reveal" style="--i:4; grid-column:1/-1">
+          <div class="protocol-top">
+            <span class="protocol-icon">PAN</span>
+            <span class="protocol-index">/ 05</span>
+          </div>
+          <h3>网盘工作台</h3>
+          <p>粘贴分享链接，在应用内登录百度、阿里、移动、天翼、迅雷、夸克、UC、123；按网盘页面选择文件，捕获官方直链后交给多线程引擎，并自动携带 Cookie、Referer 与 User-Agent。</p>
+          <ul class="tags"><li>应用内登录</li><li>直链捕获</li><li>Cookie</li><li>手动 Cookie</li><li>多线程</li></ul>
         </article>
       </div>
     </div>
@@ -1650,7 +1660,7 @@ h1, h2, h3, p { margin: 0; }
           <span>当前最新版本</span>
           <span class="release-badge"><i></i>LIVE MANIFEST</span>
         </div>
-        <div class="release-version" id="liveVersion">v2.2.1</div>
+        <div class="release-version" id="liveVersion">v2.3.0</div>
         <p class="release-notes" id="liveNotes">更新包改为多线程分段下载；支持 HTTP / FTP / BT / Magnet 全协议。</p>
         <p class="release-desc" id="liveDescription">自动更新包改用 HTTP Range 多线程分段下载（最多 32 线程），并继续支持 HTTP、HTTPS、FTP、.torrent 种子和 magnet 磁力链接。</p>
         <div class="release-actions">
@@ -1754,9 +1764,9 @@ h1, h2, h3, p { margin: 0; }
 
   /* ---------------------------------------------------------- live manifest */
   var fallback = {
-    version: "2.2.1",
-    notes: "更新包改为多线程分段下载；支持 HTTP / FTP / BT / Magnet 全协议。",
-    description: "自动更新包改用 HTTP Range 多线程分段下载（最多 32 线程），并继续支持 HTTP、HTTPS、FTP、.torrent 种子和 magnet 磁力链接。"
+    version: "2.3.0",
+    notes: "新增网盘工作台：应用内登录网盘、捕获直链后多线程下载。",
+    description: "支持百度、阿里、移动、天翼、迅雷、夸克、UC、123 等网盘分享页；在应用内登录并选择文件，捕获官方下载直链后自动携带 Cookie / Referer / User-Agent 交给多线程引擎。"
   };
 
   function setText(id, value) {
