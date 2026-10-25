@@ -62,7 +62,7 @@ https://multithreaddownloader.pages.dev/manifest.json
 powershell -ExecutionPolicy Bypass -File .\build-public.ps1 `
   -Owner zyn392 `
   -Repo MultiThreadDownloader `
-  -Version 2.4.1 `
+  -Version 2.5.0 `
   -PagesUrl https://multithreaddownloader.pages.dev
 ```
 
@@ -79,7 +79,7 @@ powershell -ExecutionPolicy Bypass -File .\build-public.ps1 `
 
 每次发布新版本，都必须在官网 `index.html` 的 `#whats-new` 更新日志中新增一条记录，说明本版本新增或改进的功能，然后才推送仓库。
 
-- 版本号与 Release tag 一致（例如 `v2.4.0`）
+- 版本号与 Release tag 一致（例如 `v2.5.0`）
 - 标题写功能名，正文写清楚用户能感知的变化
 - 保留历史版本记录，不要用新版本覆盖旧记录
 - 同步更新 `CHANGELOG.md` 与 `manifest.json` 中的 `notes` / `description`
@@ -105,7 +105,7 @@ git push
 https://github.com/zyn392/MultiThreadDownloader/releases
 ```
 
-创建 `v2.4.1`，上传：
+创建 `v2.5.0`，上传：
 
 - `release-assets/MultiThreadDownloader-Setup.exe`
 - `release-assets/update.zip`

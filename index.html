@@ -1501,7 +1501,7 @@ h1, h2, h3, p { margin: 0; }
         <h1>把等待，<br><span class="mark">切成 128 份。</span></h1>
         <p class="hero-lead">
           HTTP、FTP、BT 种子、磁力链接和主流网盘，同一个入口。CPU 自动推荐并发线程，
-          每一段的进度都看得见；浏览器扩展把网页图片、视频和手动下载也送进来；连自动更新，也用 32 个线程下载。
+          每一段的进度都看得见；可全局限速，浏览器扩展把网页图片、视频和手动下载也送进来；连自动更新，也用 32 个线程下载。
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" id="heroDownload" href="https://github.com/zyn392/MultiThreadDownloader/releases/latest/download/MultiThreadDownloader-Setup.exe">
@@ -1518,7 +1518,7 @@ h1, h2, h3, p { margin: 0; }
           </a>
         </div>
         <ul class="hero-meta">
-          <li>最新版本 <b id="heroVersion">v2.4.1</b></li>
+          <li>最新版本 <b id="heroVersion">v2.5.0</b></li>
           <li>约 133 MB</li>
           <li>无需预装 .NET</li>
           <li>本地记录 · 无遥测</li>
@@ -1735,8 +1735,20 @@ h1, h2, h3, p { margin: 0; }
       <div class="release-log">
         <article class="release-entry reveal">
           <div class="release-entry-meta">
-            <span class="version-tag">v2.4.1</span>
+            <span class="version-tag">v2.5.0</span>
             <span class="version-current">最新</span>
+            <time>2026-10-25</time>
+          </div>
+          <div>
+            <h3>全局下载限速</h3>
+            <p>设置全局下载速度上限：不限速、1 / 5 / 10 / 20 MB/s 或自定义。HTTP 多线程任务由所有线程共享同一额度，合计不超过上限；FTP / BT 对之后开始的任务生效，自动更新不受限速影响。</p>
+            <ul class="release-points"><li>不限速 / 自定义</li><li>HTTP 多线程共享额度</li><li>FTP / BT</li><li>自动更新豁免</li></ul>
+          </div>
+        </article>
+
+        <article class="release-entry reveal">
+          <div class="release-entry-meta">
+            <span class="version-tag">v2.4.1</span>
             <time>2026-10-25</time>
           </div>
           <div>
@@ -1818,7 +1830,7 @@ h1, h2, h3, p { margin: 0; }
           <span>当前最新版本</span>
           <span class="release-badge"><i></i>LIVE MANIFEST</span>
         </div>
-        <div class="release-version" id="liveVersion">v2.4.1</div>
+        <div class="release-version" id="liveVersion">v2.5.0</div>
         <p class="release-notes" id="liveNotes">更新包改为多线程分段下载；支持 HTTP / FTP / BT / Magnet 全协议。</p>
         <p class="release-desc" id="liveDescription">自动更新包改用 HTTP Range 多线程分段下载（最多 32 线程），并继续支持 HTTP、HTTPS、FTP、.torrent 种子和 magnet 磁力链接。</p>
         <div class="release-actions">
@@ -1922,9 +1934,9 @@ h1, h2, h3, p { margin: 0; }
 
   /* ---------------------------------------------------------- live manifest */
   var fallback = {
-    version: "2.4.1",
-    notes: "修复 2.4.0 启动问题；浏览器扩展抓取图片/视频并接管浏览器下载。",
-    description: "修复 2.4.0 在部分启动方式下被误判为 Native Host 而直接退出的问题。保留浏览器扩展、网盘工作台、全协议下载与多线程自动更新。"
+    version: "2.5.0",
+    notes: "新增全局下载限速；保留浏览器扩展与网盘工作台。",
+    description: "新增全局下载限速：可设置不限速、1/5/10/20 MB/s 或自定义速度，HTTP 多线程任务合计按上限限速，FTP / BT 对新任务生效；自动更新不受影响。"
   };
 
   function setText(id, value) {

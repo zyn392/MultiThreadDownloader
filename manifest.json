@@ -1,7 +1,7 @@
 {
-    "version":  "2.4.1",
-    "url":  "https://github.com/zyn392/MultiThreadDownloader/releases/download/v2.4.1/update.zip",
-    "sha256":  "ac86ab7f2771bb716a2aa69a9930daefb0a716d45d102bed50ba1673236c7ef5",
-    "notes":  "修复 2.4.0 启动问题；浏览器扩展抓取图片/视频并接管浏览器下载。",
-    "description":  "修复 2.4.0 在部分启动方式下被误判为 Native Host 而直接退出的问题。保留浏览器扩展：扫描网页图片、视频和媒体直链，发送到下载器多线程下载；浏览器手动下载也会被接管。保留网盘工作台、全协议下载与多线程自动更新。"
+    "version":  "2.5.0",
+    "url":  "https://github.com/zyn392/MultiThreadDownloader/releases/download/v2.5.0/update.zip",
+    "sha256":  "8d07edab2f08aa7c02ed05196aace846244cb7e637a32143947178e9c0078e46",
+    "notes":  "新增全局下载限速；保留浏览器扩展与网盘工作台。",
+    "description":  "新增全局下载限速：可设置不限速、1/5/10/20 MB/s 或自定义速度，HTTP 多线程任务合计按上限限速，FTP / BT 对新任务生效；自动更新不受影响。保留浏览器扩展、网盘工作台、全协议下载与多线程自动更新。"
 }
