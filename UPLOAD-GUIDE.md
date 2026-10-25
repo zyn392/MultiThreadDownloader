@@ -62,7 +62,7 @@ https://multithreaddownloader.pages.dev/manifest.json
 powershell -ExecutionPolicy Bypass -File .\build-public.ps1 `
   -Owner zyn392 `
   -Repo MultiThreadDownloader `
-  -Version 2.4.0 `
+  -Version 2.4.1 `
   -PagesUrl https://multithreaddownloader.pages.dev
 ```
 
@@ -105,7 +105,7 @@ git push
 https://github.com/zyn392/MultiThreadDownloader/releases
 ```
 
-创建 `v2.4.0`，上传：
+创建 `v2.4.1`，上传：
 
 - `release-assets/MultiThreadDownloader-Setup.exe`
 - `release-assets/update.zip`
